@@ -2,13 +2,58 @@
     <span>
         <div class="container">
          
-            <h4><b>Checkout</b></h4>
-            <p-divider></p-divider>
-            <p-tabMenu [model]="items"></p-tabMenu>
-            <p-divider></p-divider>
-           
-            <p>Architect & Engineer</p>
+            <h2><b>Checkout</b></h2>
+            <p-tabMenu #tab [model]="items" (click)="activateMenu(tab)" [activeItem]='activeItem'></p-tabMenu>
           </div>
     </span>
     
+    <div *ngIf="activeItem.label=='Detail'">
+      <div style="margin: 20px;">
+        <h3>Fill this form with your identity</h3>
+        <span class="p-float-label" style="margin-top: 30px;">
+          <input id="float-input" type="text" pInputText style="width: 100%;"> 
+          <label for="float-input">Name</label>
+      </span>
+      <span class="p-float-label" style="margin-top: 30px;">
+        <input id="float-input" type="text" pInputText style="width: 100%;"> 
+        <label for="float-input">Email</label>
+    </span>
+    <h4>*Download Link will be sent to this email.</h4>
+
+    <button (click)="continueClicked()" pButton type="button" label="Continue" style="width: 100%;margin-bottom: 20px;" class="p-button-success"></button>
+      </div>
+    </div>
+    <div *ngIf="activeItem.label=='Payment'">
+      <h3>Fill this form with your credit card details.</h3>
+      <div style="margin: 20px;">
+        <h3>Fill this form with your identity</h3>
+        <span class="p-float-label" style="margin-top: 30px;">
+          <input id="float-input" type="text" pInputText style="width: 100%;"> 
+          <label for="float-input">Card Number</label>
+      </span>
+      <span class="p-float-label" style="margin-top: 30px;">
+        <input id="float-input" type="text" pInputText style="width: 100%;"> 
+        <label for="float-input">Expire</label>
+    </span>
+      <span class="p-float-label" style="margin-top: 30px;">
+        <input id="float-input" type="text" pInputText style="width: 100%;"> 
+        <label for="float-input">Name on Card</label>
+    </span>
+    <span class="p-float-label" style="margin-top: 30px;">
+      <input id="float-input" type="text" pInputText style="width: 100%;"> 
+      <label for="float-input">Code</label>
+  </span>
+    <h4>Secure Payment</h4>
+    <button (click)="creditCardClicked()" pButton type="button" label="Pay With Credit Card" style="width: 100%;margin-bottom: 20px;" class="p-button-success"></button>
+      </div>
+    </div>
+    <div *ngIf="activeItem.label=='Success'">
+      <div class="card1">
+        <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+          <i class="checkmark">✓</i>
+        </div>
+          <h1>Success</h1> 
+          <p>We received your purchase request;<br/> we'll be in touch shortly!</p>
+        </div>
+    </div>
   </div>

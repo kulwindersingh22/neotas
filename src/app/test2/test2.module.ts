@@ -7,6 +7,7 @@ import {CardModule} from 'primeng/card';
 import {DividerModule} from 'primeng/divider';
 import {ButtonModule} from 'primeng/button';
 import {TabMenuModule} from 'primeng/tabmenu';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {TabMenuModule} from 'primeng/tabmenu';
     CardModule,
     DividerModule,
     ButtonModule,
-    TabMenuModule
+    TabMenuModule,
+    InputTextModule
   ]
 })
 export class Test2Module { }

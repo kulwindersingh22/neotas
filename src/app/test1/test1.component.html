@@ -1,1 +1,41 @@
-<p>test1 works!</p>
+<div>
+    <span class="p-float-label" style="margin-top: 30px;">
+        <input id="float-input" type="text" [(ngModel)]="title"  pInputText style="width: 100%;"> 
+        <label for="float-input">Title</label>
+    </span>
+    <button (click)="getMovieDetails()" pButton type="button" label="Search" style="width: 100%;margin-top: 20px;" class="p-button-success"></button>
+    
+
+    <p-card *ngIf="movieDetails" [header]="movieDetails.Title" [subheader]="movieDetails?.Ratings[0]?.Value" [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <img alt="Card" [src]="movieDetails.Poster" style="height: 250px;">
+        </ng-template>
+        <p>Language: {{movieDetails.Language}}</p>
+        <p>Awards: {{movieDetails.Awards}}</p>
+        <p>Actors: {{movieDetails.Actors}}</p>
+        <p>{{movieDetails.Plot}}</p>
+        
+        <i class="pi pi-heart" [ngClass]="{'heart-color': !movieDetails.fav,'heart-color-red': movieDetails.fav}" (click)="addToFav()"></i>
+    </p-card>
+
+    <div *ngIf="movieArray && movieArray.length>0">
+        <h2>
+        Favourites Movies:-
+        </h2>
+        <span *ngFor="let movieDetail of movieArray;let i=index">
+            <p-card  [header]="movieDetail.Title" [subheader]="movieDetail?.Ratings[0]?.Value" [style]="{width: '360px'}" styleClass="p-card-shadow">
+                <ng-template pTemplate="header">
+                    <img alt="Card" [src]="movieDetail.Poster" style="height: 250px;">
+                </ng-template>
+                <p>Language: {{movieDetail.Language}}</p>
+                <p>Awards: {{movieDetail.Awards}}</p>
+                <p>Actors: {{movieDetail.Actors}}</p>
+                <p>{{movieDetail.Plot}}</p>
+                
+                <i class="pi pi-heart" [ngClass]="{'heart-color': !movieDetail.fav,'heart-color-red': movieDetail.fav}" (click)="removeFav(i)"></i>
+            </p-card>
+        </span>
+      
+      
+    </div>
+</div>

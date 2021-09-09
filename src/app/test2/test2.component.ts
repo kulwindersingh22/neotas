@@ -22,4 +22,17 @@ export class Test2Component implements OnInit {
   ngOnInit(): void {
   }
 
+  continueClicked(){
+    this.activeItem = this.items[1];    
+  }
+
+  creditCardClicked(){
+    this.activeItem = this.items[2]; 
+  }
+
+  activateMenu(tab:any){
+console.log(tab);
+    this.activeItem=tab.activeItem;
+  }
+
 }
