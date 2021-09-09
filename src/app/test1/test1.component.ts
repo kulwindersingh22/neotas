@@ -7,7 +7,7 @@ import { OmdService } from '../services/omd.service';
   styleUrls: ['./test1.component.css']
 })
 export class Test1Component implements OnInit {
-  title:any='bell';
+  title:any='';
   constructor(private service:OmdService) { }
   movieDetails:any;
   movieArray:any=[];
